@@ -1,0 +1,1091 @@
+/* =========================================
+    1. FONTS & GLOBAL SETTINGS
+   ========================================= */
+@font-face {
+    font-family: "Plain Light";
+    src: url("./fonts/plain-light-webfont.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Plain Regular";
+    src: url("./fonts/plain-regular-webfont.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Silk Serif LightItalic";
+    src: url("./fonts/silkserif-lightitalic-webfont.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Silk Serif RegularItalic";
+    src: url("./fonts/silkserif-regularitalic-webfont.ttf") format("truetype");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    color: #fff;
+    font-family: "Plain Light";
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    cursor: none; /* Hidden cursor for desktop custom pointer */
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* =========================================
+    2. CUSTOM CURSOR & LOADER
+   ========================================= */
+#crsr {
+    height: 2.5vw;
+    width: 2.5vw;
+    border-radius: 50%;
+    border: 1px solid #ffffffbe;
+    position: fixed;
+    z-index: 999;
+    mix-blend-mode: difference;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+#loader {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 9999;
+    background-color: #0B0B0B;
+    padding: 25vh 10vw;
+}
+
+.line {
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    gap: 3.5vw;
+    margin-bottom: 1.5vw;
+}
+
+#line1-part1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 0.8vw;
+}
+
+#line1-part1 h5, #line1-part1 h6 {
+    font-size: 2.5vw;
+    font-family: "Silk Serif LightItalic";
+    font-weight: 100;
+}
+
+#line1-part1 h5 {
+    width: 5vw;
+    text-align: right;
+}
+
+.line h1 {
+    font-size: 6.8vw;
+    text-transform: uppercase;
+    font-weight: 800;
+    line-height: 6.8vw;
+}
+
+.line h2 {
+    font-size: 6.8vw;
+    text-transform: uppercase;
+    font-weight: 800;
+    opacity: 0;
+    -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    line-height: 6.8vw;
+    margin-left: -0.3vw;
+}
+
+@-webkit-keyframes anime {
+    0% {
+        font-family: "Plain Light";
+        -webkit-text-stroke: 1px #fff;
+        color: #fff;
+        font-weight: 800;
+        opacity: 1;
+    }
+    50% {
+        font-family: "Plain Light";
+        -webkit-text-stroke: 1px #fff;
+        color: #fff;
+        font-weight: 800;
+        opacity: 0;
+    }
+    51% {
+        font-family: "Silk Serif LightItalic";
+        -webkit-text-stroke: 1px #fff;
+        color: transparent;
+        font-weight: 500;
+        opacity: 1;
+    }
+    100% {
+        font-family: "Silk Serif LightItalic";
+        -webkit-text-stroke: 1px #fff;
+        color: transparent;
+        font-weight: 500;
+        opacity: 0;
+    }
+}
+
+@keyframes anime {
+    0% {
+        font-family: "Plain Light";
+        -webkit-text-stroke: 1px #fff;
+        color: #fff;
+        font-weight: 800;
+        opacity: 1;
+    }
+    50% {
+        font-family: "Plain Light";
+        -webkit-text-stroke: 1px #fff;
+        color: #fff;
+        font-weight: 800;
+        opacity: 0;
+    }
+    51% {
+        font-family: "Silk Serif LightItalic";
+        -webkit-text-stroke: 1px #fff;
+        color: transparent;
+        font-weight: 500;
+        opacity: 1;
+    }
+    100% {
+        font-family: "Silk Serif LightItalic";
+        -webkit-text-stroke: 1px #fff;
+        color: transparent;
+        font-weight: 500;
+        opacity: 0;
+    }
+}
+
+/* =========================================
+    3. MAIN LAYOUT (DESKTOP DEFAULT)
+   ========================================= */
+#main {
+    position: relative;
+    background-color: #111;
+}
+
+#page1 {
+    height: 100vh;
+    width: 100%;
+    background-color: #151515;
+}
+
+#fixed-nav {
+    position: fixed;
+    top: 3vw;
+    left: 5.75vw;
+    z-index: 9999;
+}
+
+#page1 #nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    padding: 3vw 5.75vw;
+    padding-left: 28vw;
+    width: 100%;
+    position: relative;
+    z-index: 999;
+}
+
+.brand__svg {
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.brand__svg:hover {
+    opacity: 0.6;
+}
+
+.nav-left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    gap: 1.5vw;
+}
+
+#menu-dots {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 2.5px 1fr 2.5px 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5px;
+    cursor: none;
+    margin-top: 6px;
+}
+
+.menu-dot {
+    width: 2.5px;
+    height: 2.5px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+#nav-part1 {
+    font-weight: 400;
+    line-height: 1.3;
+    margin-left: 0;
+}
+
+#nav-part2 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 2.5vw;
+    margin-left: auto;
+}
+
+#nav-part2 h4 {
+    font-size: 0.9vw;
+    font-weight: 400;
+    cursor: none;
+    display: inline-block;
+    position: relative;
+    z-index: 9999;
+}
+
+.hero {
+    width: 71%;
+    margin-left: 28%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: relative;
+    z-index: 9999;
+}
+
+#hero1::before {
+    content: "01";
+    position: absolute;
+    font-size: 3vw;
+    font-weight: 100;
+    font-family: Silk Serif LightItalic;
+    left: -12%;
+    top: 0.6%;
+}
+
+.hero:nth-child(2) {
+    margin-top: 14.5vh;
+}
+
+.hero h1 {
+    font-size: 7.3vw;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 7.3vw;
+}
+
+.hero h2, .hero h3 {
+    font-size: 7.3vw;
+    text-transform: uppercase;
+    font-weight: 700;
+    line-height: 7.3vw;
+}
+
+.hero h2 {
+    border-bottom: 0.5vw solid #fff;
+    padding-bottom: 0.3vw;
+    -webkit-transition: all ease 0.3s;
+    -o-transition: all ease 0.3s;
+    transition: all ease 0.3s;
+}
+
+.hero h2:hover {
+    -webkit-text-stroke: 1px #fff;
+    color: transparent;
+    font-weight: 500;
+    border-bottom: 0.5vw solid transparent;
+}
+
+/* =========================================
+    4. PAGE 2 (VIDEO)
+   ========================================= */
+#page2 {
+    height: 100vh;
+    width: 100%;
+    padding-top: 11vh;
+    position: relative;
+    background-color: #151515;
+}
+
+#video-container {
+    height: 57vh;
+    width: 72vw;
+    position: relative;
+    left: 28%;
+}
+
+#video-container img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    top: 0;
+    opacity: 1;
+}
+
+#video-container video {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    opacity: 0;
+    will-change: opacity, transform;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+}
+
+#video-crsr {
+    background-color: #FFA63E;
+    height: 9.5vw;
+    width: 9.5vw;
+    border-radius: 50%;
+    position: absolute;
+    top: -16%;
+    left: 69%;
+    z-index: 999;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+#video-crsr i {
+    font-size: 2.2vw;
+}
+
+/* =========================================
+    5. PAGE 3 (IMAGES)
+   ========================================= */
+#page3 {
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+    padding-top: 0.5vh;
+    background-color: #151515;
+}
+
+#page3 h1::before {
+    content: "02";
+    position: absolute;
+    font-size: 3vw;
+    font-weight: 100;
+    font-family: Silk Serif LightItalic;
+    left: -12%;
+    top: 1%;
+}
+
+#page3-content {
+    width: 72vw;
+    position: relative;
+    margin-left: 28%;
+}
+
+#page3-content h1 {
+    font-size: 7.2vw;
+    text-transform: uppercase;
+}
+
+#page3-content .underline {
+    height: 0.07vh;
+    width: 95%;
+    background-color: #fff;
+    margin-top: 4.5vw;
+}
+
+#image-div-container {
+    padding: 1vw;
+    position: relative;
+    margin-left: -32%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+}
+
+.image-div {
+    height: 38vw;
+    width: 30vw;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+    background-color: blue;
+    margin-left: 2vw;
+    margin-bottom: 3vw;
+}
+
+.image-div:nth-child(1) {
+    height: 29vw;
+    width: 22vw;
+}
+
+.image-div:nth-child(5) {
+    margin-top: 13vh;
+}
+
+.image-div img {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+}
+
+/* Floating Circles on Page 3 */
+.page3-circle1 {
+    height: 23vw;
+    width: 23vw;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-top: 25vh;
+    margin-left: 11vw;
+}
+
+.page3-circle1 svg {
+    height: 33%;
+}
+
+.page3-circle2 {
+    height: 23vw;
+    width: 23vw;
+    border: 1px solid #fff;
+    position: relative;
+    border-radius: 50%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+.page3-circle2 svg {
+    height: 33%;
+    rotate: -45deg;
+}
+
+.circle-in {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    border-radius: 50%;
+    -webkit-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+    scale: 0;
+}
+
+.circle-in p {
+    font-size: 0.9vw;
+    font-weight: 600;
+    color: #000;
+    width: 50%;
+    scale: 0.3;
+    -webkit-transition: all ease 0.5s;
+    -o-transition: all ease 0.5s;
+    transition: all ease 0.5s;
+    -webkit-transition-delay: 0.2s;
+         -o-transition-delay: 0.2s;
+            transition-delay: 0.2s;
+    opacity: 0;
+}
+
+.page3-circle1:hover .circle-in {
+    scale: 1;
+}
+
+.page3-circle1:hover p {
+    scale: 1;
+    opacity: 1;
+}
+
+.page3-circle2:hover .circle-in {
+    scale: 1;
+}
+
+.page3-circle2:hover p {
+    scale: 1;
+    opacity: 1;
+}
+
+/* =========================================
+    6. PAGE 4 (BLUE SECTION)
+   ========================================= */
+#page4 {
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+    padding-top: 15vh;
+    background-color: #151515;
+}
+
+#page4 h1::before {
+    content: "03";
+    position: absolute;
+    font-size: 3vw;
+    font-weight: 100;
+    font-family: Silk Serif LightItalic;
+    left: -12%;
+    top: 0.6%;
+}
+
+#page4-content {
+    width: 72vw;
+    position: relative;
+    margin-left: 28%;
+}
+
+#page4-content h1 {
+    font-size: 7.2vw;
+    text-transform: uppercase;
+}
+
+#page4-content .underline {
+    height: 0.07vh;
+    width: 95%;
+    background-color: #fff;
+    margin-top: 4.5vw;
+}
+
+#page4-content > p {
+    margin-top: 3vw;
+    font-size: 2.05vw;
+    width: 50%;
+    margin-bottom: 3.5vw;
+}
+
+#page4-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+#page4-flex img {
+    width: 50%;
+}
+
+#page4-flex p {
+    font-size: 0.8vw;
+    width: 20%;
+    margin-left: 1vw;
+}
+
+#page4-blue {
+    background-color: #3F7DF4;
+    width: 32vw;
+    height: 62vh;
+    padding: 3vw;
+    position: relative;
+    margin-top: -25vh;
+    margin-left: 25vw;
+}
+
+.blue-elem {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 2vw 0;
+    border-bottom: 1px solid #ffffff;
+}
+
+.blue-elem h4 {
+    font-size: 1.5vw;
+    font-weight: 500;
+}
+
+.blue-elem p {
+    width: 40%;
+    font-size: 0.9vw;
+}
+
+/* =========================================
+    7. PAGE 5 & SCROLLING TEXT
+   ========================================= */
+#page5 {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #151515;
+    position: relative;
+    padding-top: 25vh;
+}
+
+#page4, #page5 {
+    overflow: hidden;
+}
+
+.elem {
+    white-space: nowrap;
+    overflow-x: hidden;
+    margin-bottom: -2.5vw;
+}
+
+.elem h1 {
+    font-size: 7vw;
+    -webkit-text-stroke: 1px #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: transparent;
+    display: inline-block;
+    margin-right: 18px;
+    -webkit-animation-name: animate4;
+            animation-name: animate4;
+    -webkit-animation-duration: 30s;
+            animation-duration: 30s;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes animate4 {
+    from {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+    to {
+        -webkit-transform: translateX(-100%);
+                transform: translateX(-100%)
+    }
+}
+
+@keyframes animate4 {
+    from {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+    to {
+        -webkit-transform: translateX(-100%);
+                transform: translateX(-100%)
+    }
+}
+
+.elem2 {
+    white-space: nowrap;
+    overflow-x: hidden;
+    margin-bottom: -2.5vw;
+}
+
+.elem2 h1 {
+    font-size: 7vw;
+    -webkit-text-stroke: 1px #fff;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: transparent;
+    display: inline-block;
+    margin-right: 18px;
+    -webkit-animation-name: animate4;
+            animation-name: animate4;
+    -webkit-animation-duration: 30s;
+            animation-duration: 30s;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    animation-direction: reverse;
+}
+
+.elem h1 span, .elem2 h1 span {
+    font-family: "Plain Light";
+    font-weight: 500;
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    -webkit-transition: font-family 0.6s ease-in-out;
+    -o-transition: font-family 0.6s ease-in-out;
+    transition: font-family 0.6s ease-in-out;
+}
+
+.elem h1 span.italic-active, .elem2 h1 span.italic-active {
+    font-family: "Silk Serif LightItalic";
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+}
+
+/* =========================================
+    8. FOOTER
+   ========================================= */
+#footer {
+    height: 84vh;
+    width: 100%;
+    position: relative;
+    padding-top: 5vh;
+    padding-left: 27.5vw;
+    background-color: #151515;
+    -webkit-transform: scale(1.05);
+        -ms-transform: scale(1.05);
+            transform: scale(1.05);
+    -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+            transform-origin: center;
+}
+
+#footer h1 {
+    font-size: 7vw;
+    padding-top: -10%;
+    text-transform: uppercase;
+    position: relative;
+}
+
+#footer h1::before {
+    content: "04";
+    position: absolute;
+    font-size: 3vw;
+    font-weight: 100;
+    font-family: Silk Serif LightItalic;
+    left: -12%;
+    top: 6%;
+}
+
+.underline {
+    height: 1px;
+    width: 93%;
+    background-color: #fff;
+    margin: 4vw 0;
+}
+
+#footer-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding-right: 18vw;
+    padding-top: 2.2vw;
+}
+
+#footer-div h5 {
+    font-size: 1vw;
+    margin-bottom: 1.2vw;
+}
+
+#footer-div h6 {
+    font-size: 1.5vw;
+}
+
+#box1 {
+    width: 20%;
+    margin-right: 8vw;
+}
+
+#box2 {
+    width: 30%;
+    margin-right: 4vw;
+}
+
+.underline2 {
+    height: 1px;
+    width: 93%;
+    background-color: #fff;
+    margin-top: 10vw;
+    margin-bottom: 1vw;
+}
+
+#establish {
+    font-size: 1.3vw;
+    padding: 1vw 0;
+}
+
+._canvas_container {
+    z-index: 999999 !important;
+    pointer-events: none;
+}
+
+#flag {
+    height: 38vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+#hero3 {
+    position: relative;
+    z-index: 999;
+}
+
+/* =========================================
+    9. RESPONSIVE MEDIA QUERIES (UPDATED)
+   ========================================= */
+
+/* --- Tablet / Small Laptops (max-width: 1024px) --- */
+@media screen and (max-width: 1024px) {
+    .hero h1, .hero h2, .hero h3 {
+        font-size: 8.5vw;
+        line-height: 8.5vw;
+    }
+
+    #page3-content h1, #page4-content h1 {
+        font-size: 8vw;
+    }
+
+    #page4-blue {
+        width: 45vw;
+        margin-left: 10vw;
+    }
+}
+
+/* --- Mobile Devices (max-width: 600px) --- */
+@media screen and (max-width: 600px) {
+
+    /* 1. Global Resets & Cursor */
+    #crsr { display: none; }
+    html, body { cursor: auto; }
+
+    /* 2. Page 1 & Gap Fix */
+    #page1 {
+        height: auto; /* Allow height to fit content, fixing the big gap */
+        min-height: 60vh;
+        padding-bottom: 5vh;
+    }
+
+    /* 3. Loader Size */
+    #line1-part1 h5, #line1-part1 h6 {
+        font-size: 4vw; 
+    }
+    .line h1, .line h2 {
+        font-size: 10vw;
+        line-height: 10vw;
+    }
+
+    /* 4. Nav */
+    #page1 #nav {
+        padding: 6vw 5vw;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+    }
+    .nav-left { gap: 3vw; }
+    #nav-part2 { display: none; }
+
+    /* 5. Hero Section (Centering & Text) */
+    .hero {
+        width: 90%;
+        margin-left: 5%;
+    }
+    .hero h1, .hero h2, .hero h3 {
+        font-size: 11vw;
+        line-height: 11vw;
+    }
+
+    /* Close gap between hero lines */
+    .hero:nth-child(2) {
+        margin-top: 5vh;
+    }
+
+    /* FIX for "01" Positioning */
+    #hero1::before {
+        font-size: 5vw;
+        left: 0;
+        top: -20px; /* Precise adjustment */
+        line-height: 1;
+    }
+
+    /* 6. Page 2 - Video */
+    #page2 {
+        height: 60vh;
+        padding-top: 2vh; /* Reduced padding to close gap */
+    }
+    #video-container {
+        width: 100%;
+        height: 40vh;
+        left: 0;
+        margin-top: 4vw;
+    }
+    #video-crsr {
+        height: 20vw;
+        width: 20vw;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+    }
+    #video-crsr i { font-size: 5vw; }
+
+    /* 7. Page 3 - Images */
+    #page3 { padding-top: 10vh; }
+    #page3-content { width: 90%; margin-left: 5%; }
+
+    #page3-content h1 { font-size: 11vw; margin-bottom: 5vw; position: relative;}
+
+    /* FIX for "02" Positioning */
+    #page3 h1::before {
+        font-size: 5vw;
+        left: 0;
+        top: -30px;
+    }
+
+    #image-div-container {
+        margin-left: 0;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        margin-top: 5vw;
+    }
+    .image-div, .image-div:nth-child(1) {
+        width: 90vw;
+        height: 70vw;
+        margin-left: 0;
+        margin-bottom: 5vw;
+    }
+    .image-div:nth-child(5) { margin-top: 0; }
+    .page3-circle1, .page3-circle2 { display: none; }
+
+    /* 8. Page 4 - Blue Box */
+    #page4 { padding-top: 10vh; }
+    #page4-content { width: 90%; margin-left: 5%; }
+    #page4-content h1 { font-size: 11vw; position: relative; }
+
+    /* FIX for "03" Positioning */
+    #page4 h1::before {
+        font-size: 5vw;
+        left: 0;
+        top: -30px;
+    }
+
+    #page4-content > p { width: 100%; font-size: 4.5vw; }
+    #page4-flex { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; }
+    #page4-flex img { width: 100%; margin-bottom: 5vw; }
+    #page4-flex p { width: 100%; font-size: 3.5vw; margin-left: 0; margin-bottom: 10vw; }
+    #page4-blue {
+        width: 90%;
+        height: auto;
+        margin-left: 5%;
+        margin-top: 0; 
+        padding: 8vw;
+    }
+    .blue-elem h4 { font-size: 4.5vw; }
+    .blue-elem p { font-size: 3.5vw; }
+
+    /* 9. Scrolling Text */
+    .elem h1, .elem2 h1 { font-size: 15vw; }
+
+    /* 10. Footer */
+    #footer {
+        height: auto;
+        padding: 10vh 5vw;
+        -webkit-transform: none;
+            -ms-transform: none;
+                transform: none;
+    }
+    #footer h1 { font-size: 18vw; position: relative; }
+
+    /* FIX for "04" Positioning */
+    #footer h1::before {
+        font-size: 5vw;
+        left: 0;
+        top: -30px;
+    }
+
+    #footer-div { -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; gap: 8vw; }
+    #box1, #box2 { width: 100%; }
+    #footer-div h5 { font-size: 4vw; margin-bottom: 3vw; }
+    #footer-div h6 { font-size: 4.5vw; }
+    #establish { font-size: 3.5vw; }
+}
